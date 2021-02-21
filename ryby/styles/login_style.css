@@ -1,0 +1,208 @@
+/* zmienne w css */
+:root{
+    --dark-green: #344e41;
+    --medium-green: #588157;
+    --light-green: #a3b18a;
+    --nude: #dad7cd;
+    --salmon: #f07167;
+}
+
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* 1vw to 1% szerokości ekranu */
+/* 1vh to 1% wysokości ekranu */
+body
+{
+    background-color: var(--light-green);
+    background: linear-gradient(to right bottom, var(--medium-green), var(--light-green));
+    font-family: 'Inconsolata', monospace;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* nie widac elementow poza body */
+    color: var(--dark-green);;
+}
+
+h1
+{
+    text-align: center;
+    font-size: 50px;
+}
+
+#footer
+{
+    display: flex;
+    justify-content: center;
+}
+
+main
+{
+    width: 66%;
+    height: 66%;
+    margin: 3%;
+}
+
+#login_panel
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-green);
+    background: linear-gradient(to right bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55));
+    opacity: 0.7;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    backdrop-filter: blur(8px); /* efekt szkła */
+    -webkit-backdrop-filter: blur(8px); /* safari */
+}
+
+#login_panel > p
+{
+    font-size: 50px;
+    letter-spacing: 20px;
+    font-weight: 900;
+    position: relative;
+    top: -50px;
+    text-decoration: underline;
+    background: linear-gradient(#ffff, var(--salmon));
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+form
+{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#login_panel > form > p {
+    font-size: 30px;
+    margin: 0;
+}
+
+input
+{
+    height: 30px;
+    width: 250px;
+    padding: 10px;
+    transition: all .3s ease-in-out;
+    margin-bottom: 20%;
+    margin-top: 5px;
+    border: none;
+}
+
+input:focus
+{
+    border: white;
+}
+
+button
+{
+    height: 40px;
+    width: 250px;
+    position: relative;
+    background-color: var(--nude);
+    background: linear-gradient(var(--nude), rgba(255,255,255,0.6));
+    cursor: pointer;
+    /*outline: none; złe semantycznie */
+    border: none;
+    color: var(--medium-green);
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+button:focus
+{
+    border: var(--salmon);
+}
+
+button:after
+{
+    content: "";
+    width: 25px;
+    height: 130%;
+    left: -100px;
+    top: -10px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: transform .4s;
+    transform: rotate(20deg);
+}
+
+button:hover:after
+{
+    transform: translateX(400px) rotate(20deg);;
+}
+
+input[type='text']:hover, input[type='password']:hover
+{
+    transform: scale(1.5,1);
+}
+
+input[type='text']:focus, input[type='password']:focus
+{
+    transform: scale(1.5,1);
+}
+
+.bg_image
+{
+    position: absolute;
+    width: 130px;
+    top: 71%;
+    left: 0;
+    animation: slideDown 8s linear infinite;
+}
+
+.bg_image_camo
+{
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: 80vh;
+    right: 90vw;
+    opacity: 0.8;
+}
+
+.link_border
+{
+    position: relative;
+    top: -3px;
+    width: 100%;
+    height: 5px;
+}
+
+.link_border > span
+{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: var(--salmon);
+    /*background: linear-gradient(90deg, transparent, var(--salmon));*/
+    transition: width 0.4s;
+}
+
+button:hover ~ .link_border > span
+{
+    width: 250px;
+}
+
+@keyframes slideDown {
+    from {transform: translateX(-200%)}
+    to {transform: translateX(100vw)}
+}
